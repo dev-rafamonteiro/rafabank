@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Rafa Bank</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Rafa Bank</h1>
+		<hr>
+		<h2>Conta Bancária</h2>
+
+		<form action="#" th:action="@{/saveAccount}" th:object="${account}"
+			method="POST">
+			<input type="text" th:field="*{name}"
+				placeholder="Nome Beneficiario" class="form-control mb-4 col-4">
+				
+								<input type="text" th:field="*{branch}"
+				placeholder="Agência" class="form-control mb-4 col-4">
+				
+				
+								<input type="text" th:field="*{numberAccount}"
+				placeholder="Número Conta" class="form-control mb-4 col-4">
+							
+				
+				
+				<input type="text" th:field="*{overdraft}"
+				placeholder="Cheque Especial" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{releasedOverdraft}"
+				placeholder="Cheque Especial S/N" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{rate}"
+				placeholder="Taxa" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{balance}"
+				placeholder="Saldo" class="form-control mb-4 col-4">
+				
+				
+				
+				<button type="submit" class="btn btn-info col-2"> Criar Conta</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/}"> Voltar para lista de Contas</a>
+	</div>
+</body>
+</html>
