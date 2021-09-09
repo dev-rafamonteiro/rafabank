@@ -11,11 +11,7 @@ import br.com.rafabank.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long>{
 	
-	@Query(value = "SELECT h, from Account h WHERE h.name like %?1% or h.branch like %?1%")
+	@Query(value = "SELECT h from Account h WHERE h.name like %?1% or h.branch like %?1%")
 	List<Account> findAccountByName(String name);
-
-	@Query(value = "SELECT nome, branch, numberAccount, overdraft, releasedOverdraft,  rate, (CAST(rate AS DECIMAL(10,2)) * overdraft) balance from Account")
-	List<Account> findFormat();
 	
 }
-
