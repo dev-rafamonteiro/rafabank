@@ -23,6 +23,7 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
+	
 	@Autowired
 	private AccountRepository accountRepository;
 	
@@ -60,6 +61,7 @@ public class AccountController {
 		this.accountService.deleteAccountByCodigo(codigo);
 		return "redirect:/";
 	}
+	
 	
 	
 	@PostMapping("/findAccount")

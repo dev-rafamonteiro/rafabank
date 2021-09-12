@@ -32,13 +32,13 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account getAccountByCodigo(long codigo) {
 		Optional<Account> optional = accountRepository.findById(codigo);
-		Account employee = null;
+		Account account = null;
 		if (optional.isPresent()) {
-			employee = optional.get();
+			account = optional.get();
 		} else {
 			throw new RuntimeException(" Account not found for id :: " + codigo);
 		}
-		return employee;
+		return account;
 	}
 	
 

@@ -21,16 +21,18 @@
 			
 			<input type="text" th:field="*{name}" class="form-control mb-4 col-4">
 				
-			<input type="text" th:field="*{branch}" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{branch}" class="form-control mb-4 col-4" onkeyup="somenteNumeros(this);" maxlength="5">
 			
-			<input type="text" th:field="*{numberAccount}" class="form-control mb-4 col-4">
-			
+			<input type="text" th:field="*{numberAccount}" class="form-control mb-4 col-4" onkeyup="somenteNumeros(this);" maxlength="9">
+
 							
+			<label for="rO">Cheque Especial:</label>
+			<select name="releasedOverdraft" id="releasedOverdraft"  class="form-control mb-2 col-2">
+			  <option value="0">Não</option>
+			  <option value="1">Sim</option>
+			</select>
+
 			<input type="text" th:field="*{overdraft}" class="form-control mb-4 col-4">
-			
-							
-			<input type="text" th:field="*{releasedOverdraft}" class="form-control mb-4 col-4">
-			
 							
 			<input type="text" th:field="*{balance}" class="form-control mb-4 col-4">
 			
@@ -45,3 +47,15 @@
 	</div>
 </body>
 </html>
+
+ <script>
+    function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+          campo.value = "";
+        }
+        
+    }
+ </script>

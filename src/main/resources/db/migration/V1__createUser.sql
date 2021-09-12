@@ -1,0 +1,1 @@
+CREATE TABLE contas_bancarias ( codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY, nome varchar(255), agencia int, numero_conta int, cheque_especial varchar(255), cheque_especial_liberado int, saldo varchar(100), taxa varchar(100) )

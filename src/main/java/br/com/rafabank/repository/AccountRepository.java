@@ -15,3 +15,4 @@ public interface AccountRepository extends JpaRepository<Account, Long>{
 	List<Account> findAccountByName(String name);
 	
 }
+

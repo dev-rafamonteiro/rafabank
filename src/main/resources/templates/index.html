@@ -36,21 +36,17 @@
 					</th>
 					<th>
 					<a th:href="@{'/page/' + ${currentPage} + '?sortField=branch&sortDir=' + ${reverseSortDir}}">
-							Agência</a>
+							Agência/ Numero Conta</a>
 					</th>
-					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=numberAccount&sortDir=' + ${reverseSortDir}}">
-							Número Conta</a>
-					</th>
-					
-					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=overdraft&sortDir=' + ${reverseSortDir}}">
-							Cheque Especial</a>
-					</th>
-					
+
 					<th>
 					<a th:href="@{'/page/' + ${currentPage} + '?sortField=releasedOverdraft&sortDir=' + ${reverseSortDir}}">
 							Cheque Especial Liberado S/N</a>
+					</th>
+										
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=overdraft&sortDir=' + ${reverseSortDir}}">
+							Cheque Especial</a>
 					</th>
 					
 					<th>
@@ -68,11 +64,10 @@
 			<tbody>
 				<tr th:each="account : ${listAccount}">
 					<td th:text="${account.name}"></td>
-					<td th:text="${account.branch}"></td>
-					<td th:text="${account.numberAccount}"></td>
-					<td th:text="${account.overdraft}"></td>
-					<td th:text="${account.releasedOverdraft}"></td>
-					<td th:text="${account.balance}"></td>
+					<td th:text="|${account.branch} - ${account.numberAccount}|"></td>
+    				<td th:text="${account.releasedOverdraft} == 1 ? 'Liberado' : 'Não liberado'" />
+					<td th:text="|R$ ${account.overdraft}|"></td>
+					<td th:text="|R$ ${account.balance}|"></td>
 					<td th:text="${account.rate}"></td>
 					<td> <a th:href="@{/showFormForUpdate/{codigo}(codigo=${account.codigo})}" class="btn btn-primary">Editar</a>
 					    <a th:href="@{/deleteAccount/{codigo}(codigo=${account.codigo})}" class="btn btn-danger">Delete</a>
@@ -102,7 +97,31 @@
 					<span th:unless="${currentPage < totalPages}">Last</span>
    				 </div>
 			</div>
+			<input type="button" onclick="mudaHTML()" value="Muda HTML" />
 		</div>
 	</div>
+	
 </body>
 </html>
+
+ <script>
+    function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+          campo.value = "";
+        }
+        
+    }
+
+    function mudaHTML(){
+        document.getElementById("sinistro_data"+{codigo}).innerHTML = "novo valor aqui" + Date.now();
+    }
+
+    function codeAddress() {
+        alert('ok');
+    }
+    window.onload = mudaHTML;
+</script>
+ 

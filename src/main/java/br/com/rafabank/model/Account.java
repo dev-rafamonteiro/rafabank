@@ -14,33 +14,32 @@ import javax.persistence.Table;
 public class Account implements Serializable{
 	  
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
 
 	@Column(name = "nome")
 	private String name;
 
 	@Column(name = "agencia")
-	private String branch;
+	private Integer branch;
 
 	@Column(name = "numero_conta")
-	private String numberAccount;
+	private Integer numberAccount;
 
 	@Column(name = "cheque_especial")
 	private String overdraft;
 
 	@Column(name = "cheque_especial_liberado")
-	private String releasedOverdraft;
+	private Integer releasedOverdraft;
 
 	@Column(name = "saldo")
 	private String balance;
 
 	@Column(name = "taxa")
 	private String rate;
-	
-	
+
 	public long getCodigo() {
 		return codigo;
 	}
@@ -57,19 +56,19 @@ public class Account implements Serializable{
 		this.name = name;
 	}
 
-	public String getBranch() {
+	public Integer getBranch() {
 		return branch;
 	}
 
-	public void setBranch(String branch) {
+	public void setBranch(Integer branch) {
 		this.branch = branch;
 	}
 
-	public String getNumberAccount() {
+	public Integer getNumberAccount() {
 		return numberAccount;
 	}
 
-	public void setNumberAccount(String numberAccount) {
+	public void setNumberAccount(Integer numberAccount) {
 		this.numberAccount = numberAccount;
 	}
 
@@ -81,11 +80,11 @@ public class Account implements Serializable{
 		this.overdraft = overdraft;
 	}
 
-	public String getReleasedOverdraft() {
+	public Integer getReleasedOverdraft() {
 		return releasedOverdraft;
 	}
 
-	public void setReleasedOverdraft(String releasedOverdraft) {
+	public void setReleasedOverdraft(Integer releasedOverdraft) {
 		this.releasedOverdraft = releasedOverdraft;
 	}
 
@@ -105,4 +104,7 @@ public class Account implements Serializable{
 		this.rate = rate;
 	}
 
+
+	
+	
 }
